@@ -77,10 +77,11 @@ class LinodeClient
      * LinodeClient constructor.
      *
      * @param null|string $access_token API access token (PAT or retrieved via OAuth).
+     * @param null|Client $client
      */
-    public function __construct(string $access_token = null)
+    public function __construct(string $access_token = null, ?Client $client = null)
     {
-        $this->client       = new Client();
+        $this->client       = $client ?? new Client();
         $this->access_token = $access_token;
     }
 
