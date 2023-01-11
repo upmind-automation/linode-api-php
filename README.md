@@ -3,10 +3,7 @@ This library is an Upmind fork of [webinarium/linode-api](https://github.com/web
 # Linode API Client Library
 
 [![PHP](https://img.shields.io/badge/PHP-8.1%2B-blue.svg)](https://secure.php.net/migration81)
-[![Latest Stable Version](https://poser.pugx.org/webinarium/linode-api/v/stable)](https://packagist.org/packages/webinarium/linode-api)
-[![Build Status](https://travis-ci.com/webinarium/linode-api.svg?branch=master)](https://travis-ci.com/github/webinarium/linode-api)
-[![Code Coverage](https://scrutinizer-ci.com/g/webinarium/linode-api/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/webinarium/linode-api/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/webinarium/linode-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/webinarium/linode-api/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/upmind-automation/linode-api-php/v/stable)](https://packagist.org/packages/upmind/linode-api)
 
 This package provides a PHP client library for [Linode API](https://developers.linode.com/api/v4).
 The library is up-to-date with API [4.0.6](https://developers.linode.com/changelog/api/) released on 2018-09-24.
