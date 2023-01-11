@@ -13,4 +13,4 @@ All notable changes to the package will be documented in this file.
 
 ## 2023-01-11
 
-Library forked from [webinarium/linode-api](https://github.com/webinarium/linode-api)
+- Library forked from [webinarium/linode-api](https://github.com/webinarium/linode-api)
