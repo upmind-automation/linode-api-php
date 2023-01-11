@@ -1,14 +1,18 @@
 {
-    "name": "webinarium/linode-api",
-    "description": "Linode API Client Library",
+    "name": "upmind/linode-api",
+    "description": "Upmind fork of the Webinarium Linode API Client Library",
     "type": "library",
     "keywords": ["api", "linode"],
-    "homepage": "https://github.com/webinarium/linode-api",
+    "homepage": "https://github.com/upmind-automation/linode-api-php",
     "license": "MIT",
     "authors": [
         {
             "name": "Artem Rodygin",
             "homepage": "https://github.com/webinarium"
+        },
+        {
+            "name": "Harry Lewis",
+            "email": "harry@upmind.com"
         }
     ],
     "require": {
