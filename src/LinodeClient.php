@@ -151,6 +151,91 @@ class LinodeClient
         return null;
     }
 
+    public function account(): Account
+    {
+        return new Account($this);
+    }
+
+    public function domains(): DomainRepository
+    {
+        return new DomainRepository($this);
+    }
+
+    public function images(): ImageRepository
+    {
+        return new ImageRepository($this);
+    }
+
+    public function ips(): IPAddressRepository
+    {
+        return new IPAddressRepository($this);
+    }
+
+    public function ipv6Pools(): IPv6PoolRepository
+    {
+        return new IPv6PoolRepository($this);
+    }
+
+    public function ipv6Ranges(): IPv6RangeRepository
+    {
+        return new IPv6RangeRepository($this);
+    }
+
+    public function kernels(): KernelRepository
+    {
+        return new KernelRepository($this);
+    }
+
+    public function linodes(): LinodeRepository
+    {
+        return new LinodeRepository($this);
+    }
+
+    public function linodeTypes(): LinodeTypeRepository
+    {
+        return new LinodeTypeRepository($this);
+    }
+
+    public function longviewSubscriptions(): LongviewSubscriptionRepository
+    {
+        return new LongviewSubscriptionRepository($this);
+    }
+
+    public function nodeBalancers(): NodeBalancerRepository
+    {
+        return new NodeBalancerRepository($this);
+    }
+
+    public function profile(): Profile
+    {
+        return new Profile($this);
+    }
+
+    public function regions(): RegionRepository
+    {
+        return new RegionRepository($this);
+    }
+
+    public function stackScripts(): StackScriptRepository
+    {
+        return new StackScriptRepository($this);
+    }
+
+    public function tags(): TagRepository
+    {
+        return new TagRepository($this);
+    }
+
+    public function tickets(): SupportTicketRepository
+    {
+        return new SupportTicketRepository($this);
+    }
+
+    public function volumes(): VolumeRepository
+    {
+        return new VolumeRepository($this);
+    }
+
     /**
      * Performs a request to specified API endpoint.
      *
