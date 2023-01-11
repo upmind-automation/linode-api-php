@@ -17,7 +17,7 @@ PHP needs to be a minimum version of PHP 8.1.
 The recommended way to install is via Composer:
 
 ```bash
-composer require webinarium/linode-api
+composer require upmind/linode-api
 ```
 
 ## Usage
