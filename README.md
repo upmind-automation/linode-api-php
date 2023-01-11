@@ -3,10 +3,9 @@ This library is an Upmind fork of [webinarium/linode-api](https://github.com/web
 # Linode API Client Library
 
 [![PHP](https://img.shields.io/badge/PHP-7.1%2B-blue.svg)](https://secure.php.net/migration71)
-[![Latest Stable Version](https://poser.pugx.org/webinarium/linode-api/v/stable)](https://packagist.org/packages/webinarium/linode-api)
-[![Build Status](https://travis-ci.org/webinarium/linode-api.svg?branch=master)](https://travis-ci.org/webinarium/linode-api)
-[![Code Coverage](https://scrutinizer-ci.com/g/webinarium/linode-api/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/webinarium/linode-api/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/webinarium/linode-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/webinarium/linode-api/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/upmind-automation/linode-api-php/v/stable)](https://packagist.org/packages/upmind/linode-api)
+[![Code Coverage](https://scrutinizer-ci.com/g/upmind-automation/linode-api-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/upmind-automation/linode-api-php/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/upmind-automation/linode-api-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/upmind-automation/linode-api-php/?branch=master)
 
 This package provides a PHP client library for [Linode API](https://developers.linode.com/api/v4).
 The library is up-to-date with API [4.0.6](https://developers.linode.com/changelog/api/) released on 2018-09-24.
@@ -20,7 +19,7 @@ PHP needs to be a minimum version of PHP 7.1.
 The recommended way to install is via Composer:
 
 ```bash
-composer require webinarium/linode-api
+composer require upmind/linode-api
 ```
 
 ## Usage
