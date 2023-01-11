@@ -1,3 +1,5 @@
+This library is an Upmind fork of [webinarium/linode-api](https://github.com/webinarium/linode-api)
+
 # Linode API Client Library
 
 [![PHP](https://img.shields.io/badge/PHP-7.1%2B-blue.svg)](https://secure.php.net/migration71)
