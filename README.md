@@ -10,7 +10,7 @@ The library is up-to-date with API [4.0.6](https://developers.linode.com/changel
 
 ## Requirements
 
-PHP needs to be a minimum version of PHP 8.1.
+PHP needs to be a minimum version of PHP 7.4.
 
 ## Installation
 
