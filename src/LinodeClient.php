@@ -88,10 +88,11 @@ class LinodeClient
 
     /**
      * @param null|string $access_token API access token (PAT or retrieved via OAuth).
+     * @param null|Client $client
      */
-    public function __construct(protected ?string $access_token = null)
+    public function __construct(protected ?string $access_token = null, ?Client $client = null)
     {
-        $this->client = new Client();
+        $this->client = $client ?? new Client();
     }
 
     /**
@@ -214,6 +215,91 @@ class LinodeClient
     public function delete(string $uri): ResponseInterface
     {
         return $this->api(self::REQUEST_DELETE, $uri);
+    }
+
+    public function account(): Account\Account
+    {
+        return new Account\Account($this);
+    }
+
+    public function domains(): Domains\Repository\DomainRepository
+    {
+        return new Domains\Repository\DomainRepository($this);
+    }
+
+    public function images(): Images\Repository\ImageRepository
+    {
+        return new Images\Repository\ImageRepository($this);
+    }
+
+    public function ips(): Networking\Repository\IPAddressRepository
+    {
+        return new Networking\Repository\IPAddressRepository($this);
+    }
+
+    public function ipv6Pools(): Networking\Repository\IPv6PoolRepository
+    {
+        return new Networking\Repository\IPv6PoolRepository($this);
+    }
+
+    public function ipv6Ranges(): Networking\Repository\IPv6RangeRepository
+    {
+        return new Networking\Repository\IPv6RangeRepository($this);
+    }
+
+    public function kernels(): LinodeInstances\Repository\KernelRepository
+    {
+        return new LinodeInstances\Repository\KernelRepository($this);
+    }
+
+    public function linodes(): LinodeInstances\Repository\LinodeRepository
+    {
+        return new LinodeInstances\Repository\LinodeRepository($this);
+    }
+
+    public function linodeTypes(): LinodeTypes\Repository\LinodeTypeRepository
+    {
+        return new LinodeTypes\Repository\LinodeTypeRepository($this);
+    }
+
+    public function longviewSubscriptions(): Longview\Repository\LongviewSubscriptionRepository
+    {
+        return new Longview\Repository\LongviewSubscriptionRepository($this);
+    }
+
+    public function nodeBalancers(): NodeBalancers\Repository\NodeBalancerRepository
+    {
+        return new NodeBalancers\Repository\NodeBalancerRepository($this);
+    }
+
+    public function profile(): Profile\Profile
+    {
+        return new Profile\Profile($this);
+    }
+
+    public function regions(): Regions\Repository\RegionRepository
+    {
+        return new Regions\Repository\RegionRepository($this);
+    }
+
+    public function stackScripts(): StackScripts\Repository\StackScriptRepository
+    {
+        return new StackScripts\Repository\StackScriptRepository($this);
+    }
+
+    public function tags(): Tags\Repository\TagRepository
+    {
+        return new Tags\Repository\TagRepository($this);
+    }
+
+    public function tickets(): Support\Repository\SupportTicketRepository
+    {
+        return new Support\Repository\SupportTicketRepository($this);
+    }
+
+    public function volumes(): Volumes\Repository\VolumeRepository
+    {
+        return new Volumes\Repository\VolumeRepository($this);
     }
 
     /**
