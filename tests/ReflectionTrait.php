@@ -1,13 +1,13 @@
 <?php
 
-//----------------------------------------------------------------------
+// ---------------------------------------------------------------------
 //
-//  Copyright (C) 2018 Artem Rodygin
+//  Copyright (C) 2018-2024 Artem Rodygin
 //
 //  You should have received a copy of the MIT License along with
-//  this file. If not, see <http://opensource.org/licenses/MIT>.
+//  this file. If not, see <https://opensource.org/licenses/MIT>.
 //
-//----------------------------------------------------------------------
+// ---------------------------------------------------------------------
 
 namespace Linode;
 
@@ -22,11 +22,10 @@ trait ReflectionTrait
     public function callMethod(mixed $object, string $name, array $args = []): mixed
     {
         try {
-            $reflection = new \ReflectionMethod(get_class($object), $name);
+            $reflection = new \ReflectionMethod($object::class, $name);
 
             return $reflection->invokeArgs($object, $args);
-        }
-        catch (\ReflectionException) {
+        } catch (\ReflectionException) {
             return null;
         }
     }
@@ -37,10 +36,9 @@ trait ReflectionTrait
     public function setProperty(mixed $object, string $name, mixed $value): void
     {
         try {
-            $reflection = new \ReflectionProperty(get_class($object), $name);
+            $reflection = new \ReflectionProperty($object::class, $name);
             $reflection->setValue($object, $value);
-        }
-        catch (\ReflectionException) {
+        } catch (\ReflectionException) {
         }
     }
 
@@ -50,11 +48,10 @@ trait ReflectionTrait
     public function getProperty(mixed $object, string $name): mixed
     {
         try {
-            $reflection = new \ReflectionProperty(get_class($object), $name);
+            $reflection = new \ReflectionProperty($object::class, $name);
 
             return $reflection->getValue($object);
-        }
-        catch (\ReflectionException) {
+        } catch (\ReflectionException) {
             return null;
         }
     }
