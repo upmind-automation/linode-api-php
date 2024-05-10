@@ -10,7 +10,7 @@ The library is up-to-date with API [4.171.0](https://www.linode.com/docs/product
 
 ## Requirements
 
-PHP needs to be a minimum version of PHP 7.4.
+PHP needs to be a minimum version of PHP 8.1.
 
 ## Installation
 
