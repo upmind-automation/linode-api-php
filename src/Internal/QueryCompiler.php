@@ -1,46 +1,44 @@
 <?php
 
-//----------------------------------------------------------------------
+// ---------------------------------------------------------------------
 //
-//  Copyright (C) 2018 Artem Rodygin
+//  Copyright (C) 2018-2024 Artem Rodygin
 //
 //  You should have received a copy of the MIT License along with
-//  this file. If not, see <http://opensource.org/licenses/MIT>.
+//  this file. If not, see <https://opensource.org/licenses/MIT>.
 //
-//----------------------------------------------------------------------
+// ---------------------------------------------------------------------
 
 namespace Linode\Internal;
 
 use Symfony\Component\ExpressionLanguage\Node\Node;
 
 /**
- * A query compiler.
+ * @internal A query compiler.
  */
-class QueryCompiler
+final class QueryCompiler
 {
     /**
      * Applies specified parameters to the query.
      *
-     * @param string $query      query string
-     * @param array  $parameters query parameters
+     * @param string $query      Query string.
+     * @param array  $parameters Query parameters.
      *
      * @throws \Exception
      */
-    public function apply(string $query, array $parameters): string
+    public function apply(string $query, array $parameters = []): string
     {
         $patterns     = [];
         $replacements = [];
 
         foreach ($parameters as $key => $value) {
-
             if (!is_scalar($value)) {
                 throw new \Exception(sprintf('Parameter "%s" contains non-scalar value', $key));
             }
 
             if (is_string($value)) {
                 $value = '"' . $value . '"';
-            }
-            elseif (is_bool($value)) {
+            } elseif (is_bool($value)) {
                 $value = $value ? 'true' : 'false';
             }
 
@@ -54,7 +52,7 @@ class QueryCompiler
     /**
      * Compiles specified AST node of the query into Linode API filter.
      *
-     * @return array filters generated for the node
+     * @return array Filters generated for the node.
      *
      * @throws \Exception
      */
@@ -62,21 +60,18 @@ class QueryCompiler
     {
         $operator = $node->attributes['operator'] ?? null;
 
-        if ($operator === null) {
+        if (null === $operator) {
             throw new \Exception('Invalid expression');
         }
 
         switch ($operator) {
-
             case 'and':
-
                 return ['+and' => [
                     $this->compile($node->nodes['left']),
                     $this->compile($node->nodes['right']),
                 ]];
 
             case 'or':
-
                 return ['+or' => [
                     $this->compile($node->nodes['left']),
                     $this->compile($node->nodes['right']),
@@ -89,15 +84,14 @@ class QueryCompiler
             case '>':
             case '>=':
             case '~':
-
                 $name  = $node->nodes['left']->attributes['name']   ?? null;
                 $value = $node->nodes['right']->attributes['value'] ?? null;
 
-                if ($name === null) {
+                if (null === $name) {
                     throw new \Exception(sprintf('Left operand for the "%s" operator must be a field name', $operator));
                 }
 
-                if ($value === null) {
+                if (null === $value) {
                     throw new \Exception(sprintf('Right operand for the "%s" operator must be a constant value', $operator));
                 }
 
@@ -110,7 +104,7 @@ class QueryCompiler
                     '~'  => '+contains',
                 ];
 
-                return ($operator === '==')
+                return ('==' === $operator)
                     ? [$name => $value]
                     : [$name => [$operators[$operator] => $value]];
 

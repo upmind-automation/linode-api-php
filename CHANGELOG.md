@@ -2,6 +2,10 @@
 
 All notable changes to the package will be documented in this file.
 
+## v2.0.0 - 2024-05-10
+
+- Sync library with `webinarium` origin
+
 ## v1.2.0 - 2023-01-11
 
 - Update LinodeClient add non-magic methods to get repository instances
