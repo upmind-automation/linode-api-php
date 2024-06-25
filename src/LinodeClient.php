@@ -89,9 +89,11 @@ class LinodeClient
     /**
      * @param null|string $access_token API access token (PAT or retrieved via OAuth).
      */
-    public function __construct(protected ?string $access_token = null)
-    {
-        $this->client = new Client();
+    public function __construct(
+        protected ?string $access_token = null,
+        ClientInterface $client = null
+    ) {
+        $this->client = $client ?? new Client();
     }
 
     /**
@@ -143,6 +145,187 @@ class LinodeClient
             default                 => null,
         };
     }
+
+    public function account(): Account\Account
+    {
+        return new Account\Account($this);
+    }
+
+    public function betaPrograms(): BetaPrograms\Repository\BetaProgramRepository
+    {
+        return new BetaPrograms\Repository\BetaProgramRepository($this);
+    }
+
+    public function databases(): Databases\Repository\DatabaseRepository
+    {
+        return new Databases\Repository\DatabaseRepository($this);
+    }
+
+    public function databaseEngines(): Databases\Repository\DatabaseEngineRepository
+    {
+        return new Databases\Repository\DatabaseEngineRepository($this);
+    }
+
+    public function databaseTypes(): Databases\Repository\DatabaseTypeRepository
+    {
+        return new Databases\Repository\DatabaseTypeRepository($this);
+    }
+
+    public function databasesMySQL(): Databases\Repository\DatabaseMySQLRepository
+    {
+        return new Databases\Repository\DatabaseMySQLRepository($this);
+    }
+
+    public function databasesPostgreSQL(): Databases\Repository\DatabasePostgreSQLRepository
+    {
+        return new Databases\Repository\DatabasePostgreSQLRepository($this);
+    }
+
+    public function domains(): Domains\Repository\DomainRepository
+    {
+        return new Domains\Repository\DomainRepository($this);
+    }
+
+    public function firewalls(): Networking\Repository\FirewallRepository
+    {
+        return new Networking\Repository\FirewallRepository($this);
+    }
+
+    public function images(): Images\Repository\ImageRepository
+    {
+        return new Images\Repository\ImageRepository($this);
+    }
+
+    public function kernels(): LinodeInstances\Repository\KernelRepository
+    {
+        return new LinodeInstances\Repository\KernelRepository($this);
+    }
+
+    public function linodes(): LinodeInstances\Repository\LinodeRepository
+    {
+        return new LinodeInstances\Repository\LinodeRepository($this);
+    }
+
+    public function linodeTypes(): LinodeTypes\Repository\LinodeTypeRepository
+    {
+        return new LinodeTypes\Repository\LinodeTypeRepository($this);
+    }
+
+    public function lkeClusters(): LKE\Repository\LKEClusterRepository
+    {
+        return new LKE\Repository\LKEClusterRepository($this);
+    }
+
+    public function lkeVersions(): LKE\Repository\LKEVersionRepository
+    {
+        return new LKE\Repository\LKEVersionRepository($this);
+    }
+
+    public function longviewClients(): Longview\Repository\LongviewClientRepository
+    {
+        return new Longview\Repository\LongviewClientRepository($this);
+    }
+
+    public function longviewSubscriptions(): Longview\Repository\LongviewSubscriptionRepository
+    {
+        return new Longview\Repository\LongviewSubscriptionRepository($this);
+    }
+
+    public function managedContacts(): Managed\Repository\ManagedContactRepository
+    {
+        return new Managed\Repository\ManagedContactRepository($this);
+    }
+
+    public function managedCredentials(): Managed\Repository\ManagedCredentialRepository
+    {
+        return new Managed\Repository\ManagedCredentialRepository($this);
+    }
+
+    public function managedIssues(): Managed\Repository\ManagedIssueRepository
+    {
+        return new Managed\Repository\ManagedIssueRepository($this);
+    }
+
+    public function managedLinodeSettings(): Managed\Repository\ManagedLinodeSettingsRepository
+    {
+        return new Managed\Repository\ManagedLinodeSettingsRepository($this);
+    }
+
+    public function managedServices(): Managed\Repository\ManagedServiceRepository
+    {
+        return new Managed\Repository\ManagedServiceRepository($this);
+    }
+
+    public function ipAddresses(): Networking\Repository\IPAddressRepository
+    {
+        return new Networking\Repository\IPAddressRepository($this);
+    }
+
+    public function ipv6Pools(): Networking\Repository\IPv6PoolRepository
+    {
+        return new Networking\Repository\IPv6PoolRepository($this);
+    }
+
+    public function ipv6Ranges(): Networking\Repository\IPv6RangeRepository
+    {
+        return new Networking\Repository\IPv6RangeRepository($this);
+    }
+
+    public function nodeBalancers(): NodeBalancers\Repository\NodeBalancerRepository
+    {
+        return new NodeBalancers\Repository\NodeBalancerRepository($this);
+    }
+
+    public function objectStorageClusters(): ObjectStorage\Repository\ObjectStorageClusterRepository
+    {
+        return new ObjectStorage\Repository\ObjectStorageClusterRepository($this);
+    }
+
+    public function objectStorageKeys(): ObjectStorage\Repository\ObjectStorageKeyRepository
+    {
+        return new ObjectStorage\Repository\ObjectStorageKeyRepository($this);
+    }
+
+    public function profile(): Profile\Profile
+    {
+        return new Profile\Profile($this);
+    }
+
+    public function regions(): Regions\Repository\RegionRepository
+    {
+        return new Regions\Repository\RegionRepository($this);
+    }
+
+    public function stackScripts(): StackScripts\Repository\StackScriptRepository
+    {
+        return new StackScripts\Repository\StackScriptRepository($this);
+    }
+
+    public function supportTickets(): Support\Repository\SupportTicketRepository
+    {
+        return new Support\Repository\SupportTicketRepository($this);
+    }
+
+    public function tags(): Tags\Repository\TagRepository
+    {
+        return new Tags\Repository\TagRepository($this);
+    }
+
+    public function vlans(): Networking\Repository\VlansRepository
+    {
+        return new Networking\Repository\VlansRepository($this);
+    }
+
+    public function volumes(): Volumes\Repository\VolumeRepository
+    {
+        return new Volumes\Repository\VolumeRepository($this);
+    }
+
+    public function vpcs(): VPC\Repository\VPCRepository
+    {
+        return new VPC\Repository\VPCRepository($this);
+    }
+
 
     /**
      * Performs a GET request to specified API endpoint.
