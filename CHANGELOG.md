@@ -2,9 +2,10 @@
 
 All notable changes to the package will be documented in this file.
 
-## v2.0.0 - 2024-05-10
+## v3.5.0 - 2024-06-25
 
-- Sync library with `webinarium` origin
+- Sync library with `webinarium` origin v3.5.0
+- Updates library for PHP 8
 
 ## v1.2.0 - 2023-01-11
 
